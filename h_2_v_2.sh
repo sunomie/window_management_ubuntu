@@ -10,7 +10,7 @@ W=$(( $SCREEN_WIDTH / 3 - $RIGHTMARGIN ))
 H=$(( $SCREEN_HEIGHT/2 - $TOPMARGIN))
 
 # moving to the right half of the screen:
-X=$(( 1*$SCREEN_WIDTH / 3 ))
+X=$(( 1*$SCREEN_WIDTH / 3 +$SCREEN_OFFSET_WIDTH));
 Y=$(( $SCREEN_HEIGHT / 2 ))
 
 wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz && wmctrl -r :ACTIVE: -e 0,$X,$Y,$W,$H

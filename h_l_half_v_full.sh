@@ -12,7 +12,7 @@ H=$(( $SCREEN_HEIGHT - $TOPMARGIN))
 
 # X, change to move left or right:
 
-X=0
-Y=0
+X=$SCREEN_OFFSET_WIDTH;
+Y=$SCREEN_OFFSET_HEIGHT;
 
 wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz && wmctrl -r :ACTIVE: -e 0,$X,$Y,$W,$H

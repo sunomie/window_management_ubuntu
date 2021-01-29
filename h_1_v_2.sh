@@ -10,7 +10,7 @@ W=$(( $SCREEN_WIDTH / 3 - $RIGHTMARGIN ))
 #H=$(( $SCREEN_HEIGHT - $TOPMARGIN ))
 H=$(( $SCREEN_HEIGHT/2 - $TOPMARGIN))
 
-X=0; 
-Y=$(( $SCREEN_HEIGHT / 2 ))
+X=$SCREEN_OFFSET_WIDTH; 
+Y=$(( $SCREEN_HEIGHT / 2 + $SCREEN_OFFSET_HEIGHT))
 
 wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz && wmctrl -r :ACTIVE: -e 0,$X,$Y,$W,$H
