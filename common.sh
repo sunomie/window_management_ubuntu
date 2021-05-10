@@ -37,18 +37,24 @@ export SCREEN_HEIGHT=$(( "${Yaxis[0]}" > "${Yaxis[1]}" ? "${Yaxis[0]}" : "${Yaxi
 
 # These offsets may or may not be needed depending on how you have arranged your laptop monitor and your TV monitor to line up
 export SCREEN_OFFSET_WIDTH=0
+# This might be needed if the big 2nd monitor is to the right of the primary laptop monitor
+if [ "$SCREEN_WIDTH" == "${Xaxis[0]}" ]; then
+	export SCREEN_OFFSET_WIDTH="${Xaxis[1]}"
+elif [ "$SCREEN_WIDTH" == "${Xaxis[1]}" ]; then
+	export SCREEN_OFFSET_WIDTH="${Xaxis[0]}"
+fi
 export SCREEN_OFFSET_HEIGHT=0
-#if [ "$SCREEN_WIDTH" == "${Xaxis[0]}" ]; then
-#	export SCREEN_OFFSET_WIDTH="${Xaxis[1]}"
-#fi
+# This might be needed if the big 2nd monitor is above or below the primary laptop monitor
 #if [ "$SCREEN_HEIGHT" == "${Yaxis[0]}" ]; then
 #	export SCREEN_OFFSET_HEIGHT="${Yaxis[1]}"
+#elif [ "$SCREEN_HEIGHT" == "${Yaxis[1]}" ]; then
+#	export SCREEN_OFFSET_HEIGHT="${Yaxis[0]}"
 #fi
 
 #Debug
 echo "Xaxis[0]: ${Xaxis[0]}"
-echo "Xaxis[1]: ${Xaxis[1]}"
 echo "Yaxis[0]: ${Yaxis[0]}"
+echo "Xaxis[1]: ${Xaxis[1]}"
 echo "Yaxis[1]: ${Yaxis[1]}"
 echo "SCREEN_WIDTH: $SCREEN_WIDTH"
 echo "SCREEN_HEIGHT: $SCREEN_HEIGHT"
